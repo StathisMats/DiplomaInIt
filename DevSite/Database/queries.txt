@@ -1,0 +1,24 @@
+CREATE TABLE users (
+id INT(6) AUTO_INCREMENT PRIMARY KEY,
+first_name VARCHAR (255),
+last_name VARCHAR (255));
+
+
+CREATE TABLE user_credentials
+(id INT AUTO_INCREMENT PRIMARY KEY,
+userName VARCHAR (255),
+email VARCHAR(255),
+password VARCHAR(255),
+user_role VARCHAR(255),
+access_allowed VARCHAR(255),
+user_id INT, FOREIGN KEY (user_id) REFERENCES users(id));
+
+
+INSERT INTO users (first_name, last_name) VALUES ('First', 'User'), ('Last', 'User');
+
+
+INSERT INTO user_credentials
+(email, password, user_name, user_role, access_allowed, user_id)
+VALUES
+('user1@gmail.com', '1', 'User1', 'admin', 1, 1),
+('user2@gmail.com', '2', 'User2', 'user', 0, 2);
